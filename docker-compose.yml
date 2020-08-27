@@ -1,12 +1,9 @@
-version: '2'
+version: '3'
 
 services:
   dd7:
     hostname: dd7
     image: kafeisystems/dd7
-    mem_limit: 500m
-    # php is 356m
-    cpu_shares: 300
     restart: on-failure
     ports:
       - "80"
@@ -19,8 +16,6 @@ services:
   db:
     hostname: db
     image: mysql:5
-    mem_limit: 512m
-    cpu_shares: 624
     restart: on-failure
     ports:
       - "3306"
