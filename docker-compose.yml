@@ -18,7 +18,7 @@ services:
       - db
   db:
     hostname: db
-    image: mysql:latest
+    image: mysql:5
     mem_limit: 512m
     cpu_shares: 624
     restart: on-failure
