@@ -26,27 +26,38 @@ By keeping things simple we gain the following benefits:
 
 ## How to Use
 
-The configuration is contained in the docker-compose.yml file. By default you
-will not need to touch it unless you are overriding something.
+Before you begin you must have `docker` installed on your computer. If you are
+using Linux you will also need `docker-compose`.
+
+The configuration is contained in the docker-compose.yml file.
 
 Before you run `docker-compose up` in this folder you will want to do the
 following:
 
-1. Put your Drupal site (code base) in the `repo` folder.
+1. Put your Drupal site (code base) in the `repo` folder. The entire code base,
+the core files and any modules and themes you have.
 
-2. Copy your settings.php to the `settings` folder. There is an example
-provided with the default connection values (databse host: "db", name: "dd7",
-user: "dd7", pass: "dd7").
+2. If you have settings.php customizations check the `settings` folder. That
+folder is mounted as a "volume" over top of whatever your repo/sites/default
+folder has in it.
+
+    The provided settings/settings.php file has the database settings pre-populated at the bottom of the file.
+
+    It uses the default connection values (databse host:
+"db", name: "dd7", user: "dd7", pass: "dd7").
 
 3. Your files should be unzipped into the `files` folder.
 
-For 1, 2, and 3, if you are on Linux or MacOS you may use symlinks to point to
-folders that exist somewhere else. On Windows perhaps you can use WSL symlinks,
-but that is up to you to research and figure out if you want to do things that
-way.
+    For 1, 2, and 3, if you are on Linux or MacOS you may use symlinks to point to
+    folders that exist somewhere else. On Windows perhaps you can use WSL symlinks,
+    but that is up to you to research and figure out if you want to do things that
+    way.
 
 4. Finally, you will need to put a copy of your database into the `sql` folder,
 USING THE NAME dd7.sql.gz, if gzipped, or dd7.sql if not gzipped.
+
+    Yes, if you are wondering, you may put additional files and they will be
+auto-imported as well. Check the MySQL docker image documentation for details.
 
 5. Now you are ready to `docker-compose up`!
 
@@ -54,7 +65,7 @@ USING THE NAME dd7.sql.gz, if gzipped, or dd7.sql if not gzipped.
 
 In order to connect to the site you will need to know it's IP address or port
 number. In Windows or MacOS you may have a menu to do this, but you can always
-go to the terminal and run "docker ps" to see a listing. Find the dd7 image you
+go to the terminal and run `docker ps` to see a listing. Find the dd7 image you
 are running in the list and note the port number.
 
 ### Access using port number
