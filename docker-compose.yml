@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  dd7:
+    hostname: dd7
+    image: kafeisystems/dd7
+    mem_limit: 500m
+    # php is 356m
+    cpu_shares: 300
+    restart: on-failure
+    ports:
+      - "80"
+    volumes:
+      - "${PWD}/repo:/var/www/html"
+      - "${PWD}/settings:/var/www/html/sites/default"
+      - "${PWD}/files:/var/www/html/sites/default/files"
+    depends_on:
+      - db
+  db:
+    hostname: db
+    image: mysql:latest
+    mem_limit: 512m
+    cpu_shares: 624
+    restart: on-failure
+    ports:
+      - "3306"
+    command: --max_allowed_packet=32505856
+    environment:
+      - MYSQL_DATABASE=dd7
+      - MYSQL_USER=dd7
+      - MYSQL_PASSWORD=dd7 
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    volumes:
+      - "${PWD}/sql:/docker-entrypoint-initdb.d"
+      - "${PWD}/exports:/var/lib/mysql-files"
