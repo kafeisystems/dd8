@@ -11,9 +11,9 @@ services:
     ports:
       - "80"
     volumes:
-      - "${PWD}/repo:/var/www/html"
-      - "${PWD}/settings:/var/www/html/sites/default"
-      - "${PWD}/files:/var/www/html/sites/default/files"
+      - "./repo:/var/www/html"
+      - "./settings:/var/www/html/sites/default"
+      - "./files:/var/www/html/sites/default/files"
     depends_on:
       - db
   db:
@@ -31,5 +31,5 @@ services:
       - MYSQL_PASSWORD=dd7 
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
     volumes:
-      - "${PWD}/sql:/docker-entrypoint-initdb.d"
-      - "${PWD}/exports:/var/lib/mysql-files"
+      - "./sql:/docker-entrypoint-initdb.d"
+      - "./exports:/var/lib/mysql-files"
