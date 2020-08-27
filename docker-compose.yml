@@ -8,7 +8,7 @@ services:
     ports:
       - "80"
     volumes:
-      - ./repo:/var/www/html
+      - ./code:/var/www/html
       - ./settings:/var/www/html/sites/default
       - ./files:/var/www/html/sites/default/files
     depends_on:

@@ -41,7 +41,7 @@ running when you start to have lots of projects.
     Here is an example using Github's HTTPs URL to clone a project and call it `<my-project>`:
     `git clone https://github.com/kafeisystems/dd7.git <my-project>`
 
-1. Create a subfolder inside this folder called `repo` with your project's code
+1. Create a subfolder inside this folder called `code` with your project's code
 base. The entire *code* base, the Drupal/Backdrop core files and any modules and
 themes you have.
 
@@ -49,7 +49,7 @@ themes you have.
 sites/default/files folder in here.
 
 3. If you have settings.php customizations check the `settings` folder. That
-folder is mounted as a "volume" over top of whatever your repo/sites/default
+folder is mounted as a "volume" over top of whatever your code/sites/default
 folder has in it.
 
     The provided settings/settings.php file has the database settings pre-populated at the bottom of the file.
@@ -78,7 +78,7 @@ image documentation for additional details.
 time as it needs to import the dd7.sql.gz file. If you see it "stuck" on that
 step - that is good! Wait until it gets past that and you should be good to go.
 
-    You can now begin editing files in your `repo` folder to do your work. When
+    You can now begin editing files in your `code` folder to do your work. When
 you need to run commands in the container use the instructions below to connect
 to it and run `drush` commands from in the `dd7` container.
 
@@ -116,16 +116,12 @@ If you happen to use Microsoft's Visual Studio Code as your editor, you may
 install the Docker plugin and find the running DD7 container in the list of
 containers.
 
-#### Drush
+Right-click on the dd7 container and "open in browser" and that will
+load the `localhost:<port>` that points to the container in your browser.
 
-When you see the DD7 container you are interested in, right-click, and "Attach
-terminal". You will see a new terminal with the path `/var/www/html`... this is
-your repo's location inside the container. You can type any drush command here.
-
-#### Browser
-
-You can also use VS Code's right-click menu to "open in browser" and that will
-load the localhost:port URL into your browser.
+Alternatively you can right-click and click "Attach shell". You will see a new
+terminal appear with the path `/var/www/html`... this is your `code` folder's
+location inside the container. You can type any `drush` commands here.
 
 ## Some additional notes about Drush
 
