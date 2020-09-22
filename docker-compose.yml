@@ -5,6 +5,8 @@ services:
     hostname: dd7
     image: kafeisystems/dd7
     restart: on-failure
+    environment:
+      - DSALT=youlovesalt
     ports:
       - "80"
     volumes:
@@ -21,9 +23,9 @@ services:
       - "3306"
     command: --max_allowed_packet=32505856
     environment:
-      - MYSQL_DATABASE=dd7
-      - MYSQL_USER=dd7
-      - MYSQL_PASSWORD=dd7 
+      - MYSQL_DATABASE=dd8
+      - MYSQL_USER=dd8
+      - MYSQL_PASSWORD=dd8
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
