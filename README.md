@@ -1,6 +1,6 @@
-# DD7
+# DD8
 
-This is a Drupal7 + Drush hosting environemnt created entirely in Docker.
+This is a Drupal8 + Drush hosting environemnt created entirely in Docker.
 
 The goal of this project is to create the most simple environment possible
 using purely docker concepts - no custom scripting specific to Drupal.
@@ -39,7 +39,7 @@ project is about. The name will be used to distinguish which container you are
 running when you start to have lots of projects.
 
     Here is an example using Github's HTTPs URL to clone a project and call it `<my-project>`:
-    `git clone https://github.com/kafeisystems/dd7.git <my-project>`
+    `git clone https://github.com/kafeisystems/dd8.git <my-project>`
 
 1. Create a subfolder inside this folder called `code` with your project's code
 base. The entire *code* base, the Drupal/Backdrop core files and any modules and
@@ -55,7 +55,7 @@ folder has in it.
     The provided settings/settings.php file has the database settings pre-populated at the bottom of the file.
 
     It uses the default connection values (databse host:
-"db", name: "dd7", user: "dd7", pass: "dd7").
+"db", name: "dd8", user: "dd8", pass: "dd8").
 
 4. Your files should be unzipped into the `files` folder.
 
@@ -65,7 +65,7 @@ symlinks, but that is up to you to research and figure out if you want to do
 things that way.
 
 4. Finally, you will need to put a copy of your database into the `sql` folder,
-USING THE NAME dd7.sql.gz, if gzipped, or dd7.sql if not gzipped.
+USING THE NAME dd8.sql.gz, if gzipped, or dd8.sql if not gzipped.
 
     Yes, if you are wondering, you may put additional files and they will be
 auto-imported as well into a database resembling the name of the file. You
@@ -75,12 +75,12 @@ image documentation for additional details.
 5. Now you are ready to `docker-compose up`!
 
     The first time the database container starts up it "should" take a long
-time as it needs to import the dd7.sql.gz file. If you see it "stuck" on that
+time as it needs to import the dd8.sql.gz file. If you see it "stuck" on that
 step - that is good! Wait until it gets past that and you should be good to go.
 
     You can now begin editing files in your `code` folder to do your work. When
 you need to run commands in the container use the instructions below to connect
-to it and run `drush` commands from in the `dd7` container.
+to it and run `drush` commands from in the `dd8` container.
 
 6. To stop the containers, press `Control-C` in the terminal where
 `docker-compose` is running. To REMOVE the containers, or to force a reload of
@@ -90,7 +90,7 @@ a fresh DB next time, use `docker-compose down`.
 
 In order to connect to the site you will need to know it's IP address or port
 number. In Windows or MacOS you may have a menu to do this, but you can always
-go to the terminal and run `docker ps` to see a listing. Find the dd7 image you
+go to the terminal and run `docker ps` to see a listing. Find the dd8 image you
 are running in the list and note the port number.
 
 ### Using the command line
@@ -113,10 +113,10 @@ in the `docker ps` listing while your `docker-compose up` is running.
 ### Managing the site using VS Code's Docker plugin
 
 If you happen to use Microsoft's Visual Studio Code as your editor, you may
-install the Docker plugin and find the running DD7 container in the list of
+install the Docker plugin and find the running DD8 container in the list of
 containers.
 
-Right-click on the dd7 container and "open in browser" and that will
+Right-click on the dd8 container and "open in browser" and that will
 load the `localhost:<port>` that points to the container in your browser.
 
 Alternatively you can right-click and click "Attach shell". You will see a new
@@ -126,7 +126,7 @@ location inside the container. You can type any `drush` commands here.
 ## Some additional notes about Drush
 
 All drush commands, such as `drush cc all` should work fine once you are
-attached to the dd7 container as described above.
+attached to the dd8 container as described above.
 
 Keep in mind when using `drush uli` that the first part of the URL is going to
 be wrong, it will say `http://default` because it doesn't know what hostname

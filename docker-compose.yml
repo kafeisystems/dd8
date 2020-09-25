@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  dd7:
-    hostname: dd7
+  dd8:
+    hostname: dd8
     image: kafeisystems/dd7
     restart: on-failure
     environment:
