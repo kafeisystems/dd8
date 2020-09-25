@@ -41,6 +41,12 @@ running when you start to have lots of projects.
     Here is an example using Github's HTTPs URL to clone a project and call it `<my-project>`:
     `git clone https://github.com/kafeisystems/dd8.git <my-project>`
 
+    If you have node.js installed you have an even better option:
+    `npx degit kafeisystems/dd8 <my-project>`
+
+    This second method also removes the git history so you can track things on
+    your own!
+
 1. Create a subfolder inside this folder called `code` with your project's code
 base. The entire *code* base, the Drupal/Backdrop core files and any modules and
 themes you have.
